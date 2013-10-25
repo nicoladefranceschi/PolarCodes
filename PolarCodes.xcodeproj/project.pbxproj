@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3B71940181B092300055AD4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7193F181B092300055AD4 /* main.c */; };
+		B3B71940181B092300055AD4 /* test_double_ei.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7193F181B092300055AD4 /* test_double_ei.c */; };
 		B3B71942181B092300055AD4 /* PolarCodes.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3B71941181B092300055AD4 /* PolarCodes.1 */; };
 		B3B7196B181B0AD900055AD4 /* channels.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7195D181B0AD900055AD4 /* channels.c */; };
 		B3B7196C181B0AD900055AD4 /* double_ei.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7195F181B0AD900055AD4 /* double_ei.c */; };
@@ -33,7 +33,7 @@
 
 /* Begin PBXFileReference section */
 		B3B7193C181B092300055AD4 /* PolarCodes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PolarCodes; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3B7193F181B092300055AD4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		B3B7193F181B092300055AD4 /* test_double_ei.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = test_double_ei.c; sourceTree = "<group>"; };
 		B3B71941181B092300055AD4 /* PolarCodes.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PolarCodes.1; sourceTree = "<group>"; };
 		B3B7195D181B0AD900055AD4 /* channels.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = channels.c; sourceTree = "<group>"; };
 		B3B7195E181B0AD900055AD4 /* channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = channels.h; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		B3B7193E181B092300055AD4 /* PolarCodes */ = {
 			isa = PBXGroup;
 			children = (
-				B3B7193F181B092300055AD4 /* main.c */,
+				B3B7193F181B092300055AD4 /* test_double_ei.c */,
 				B3B7195D181B0AD900055AD4 /* channels.c */,
 				B3B7195E181B0AD900055AD4 /* channels.h */,
 				B3B7195F181B0AD900055AD4 /* double_ei.c */,
@@ -154,7 +154,7 @@
 			files = (
 				B3B7196F181B0AD900055AD4 /* pc_decode.c in Sources */,
 				B3B71971181B0AD900055AD4 /* polar_codes.c in Sources */,
-				B3B71940181B092300055AD4 /* main.c in Sources */,
+				B3B71940181B092300055AD4 /* test_double_ei.c in Sources */,
 				B3B7196B181B0AD900055AD4 /* channels.c in Sources */,
 				B3B7196E181B0AD900055AD4 /* pc_decode_internal.c in Sources */,
 				B3B7196C181B0AD900055AD4 /* double_ei.c in Sources */,

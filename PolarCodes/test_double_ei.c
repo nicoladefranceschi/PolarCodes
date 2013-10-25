@@ -13,8 +13,19 @@
 int main(int argc, const char * argv[])
 {
 
-    // insert code here...
-    printf("Hello, World!\n");
+    double d = 1234.0/(1<<5);
+    
+    printf("%f ",d);
+    
+    double_fput(stdout, d);
+    printf("\n");
+    
+    double i = double_fget(stdin);
+    double i2 = double_fget(stdin);
+    
+    printf("%f\n",i);
+    printf("%f\n",i2);
+    
     return 0;
 }
 
