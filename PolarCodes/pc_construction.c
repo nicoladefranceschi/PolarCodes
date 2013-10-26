@@ -31,8 +31,8 @@ void pc_construction(double *Z, double *Zvar, u_int64_t n, const Channel *channe
     
     u_int64_t N = 1 << n;
     
-    memset(Z, 0, sizeof(double)*N);
-    memset(Zvar, 0, sizeof(double)*N);
+//    memset(Z, 0, sizeof(double)*N);
+//    memset(Zvar, 0, sizeof(double)*N);
     
     u_int64_t i;
     Bit *u = malloc(N*sizeof(Bit));
