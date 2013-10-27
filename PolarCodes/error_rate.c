@@ -15,11 +15,11 @@
 #include "double_ei.h"
 
 void get_error_rate_file_name(char *filename, u_int64_t n, Channel *channel, u_int64_t K) {
-    sprintf(filename, "bh_%" PRIu64 "_ch_%d_par_%f" "_k_%" PRIu64 ".txt", n, channel->channel_type, channel->par, K);
+    sprintf(filename, "er_%" PRIu64 "_ch_%d_par_%f" "_k_%" PRIu64 ".txt", n, channel->channel_type, channel->par, K);
 }
 
 void get_error_rate_file_name_tmp(char *filename, u_int64_t n, Channel *channel, u_int64_t K) {
-    sprintf(filename, "bh_%" PRIu64 "_ch_%d_par_%f" "_k_%" PRIu64 ".tmp.txt", n, channel->channel_type, channel->par, K);
+    sprintf(filename, "er_%" PRIu64 "_ch_%d_par_%f" "_k_%" PRIu64 ".tmp.txt", n, channel->channel_type, channel->par, K);
 }
 
 FILE *open_error_rate_file_in(const char *dir, u_int64_t n, Channel *channel, u_int64_t K) {
