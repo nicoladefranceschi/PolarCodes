@@ -20,6 +20,7 @@ typedef u_int8_t Bit;
 
 
 void random_bits(Bit *bits, u_int64_t N);
+void random_bits_f(Bit *bits, Bit *A, u_int64_t N);
 
 void print_bits(Bit *bits, u_int64_t N);
 void print_doubles(double *doubles, u_int64_t N);

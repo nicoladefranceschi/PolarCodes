@@ -46,6 +46,33 @@ FILE *open_bhattacharyya_file_out_temp(const char *dir, u_int64_t n, Channel *ch
     return fopen(filename, "w");
 }
 
+void get_or_create_bhattacharyya(Bhattacharyya *b, const char *dir, u_int64_t n, Channel *channel) {
+    u_int64_t N = 1<<n;
+    
+    b->n = n;
+    b->channel.channel_type = channel->channel_type;
+    b->channel.par = channel->par;
+    b->Z = malloc(sizeof(double)*N);
+    b->Zvar = malloc(sizeof(double)*N);
+    b->total_samples = 0;
+    
+    u_int64_t i;
+    FILE *in = open_bhattacharyya_file_in(dir, n, channel);
+    if(in){
+        if(1 != fscanf(in, "%" PRIu64, &(b->total_samples)))
+            exit(1);
+        for(i = 0; i < N; i++){
+            b->Z[i] = double_fget(in);
+            b->Zvar[i] = double_fget(in);
+        }
+        fclose(in);
+        in = NULL;
+    }else{
+        memset(b->Z, 0, sizeof(double)*N);
+        memset(b->Zvar, 0, sizeof(double)*N);
+    }
+
+}
 
 void get_bhattacharyya(Bhattacharyya *b, const char *dir, u_int64_t n, Channel *channel) {
     u_int64_t N = 1<<n;
@@ -69,8 +96,7 @@ void get_bhattacharyya(Bhattacharyya *b, const char *dir, u_int64_t n, Channel *
         fclose(in);
         in = NULL;
     }else{
-        memset(b->Z, 0, sizeof(double)*N);
-        memset(b->Zvar, 0, sizeof(double)*N);
+        exit(4);
     }
 
 }

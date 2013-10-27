@@ -22,6 +22,7 @@ typedef struct {
 } Bhattacharyya;
 
 void get_bhattacharyya(Bhattacharyya *b, const char *dir, u_int64_t n, Channel *channel);
+void get_or_create_bhattacharyya(Bhattacharyya *b, const char *dir, u_int64_t n, Channel *channel);
 void save_bhattacharyya(Bhattacharyya *b, const char *dir);
 
 void get_frozen_bits(Bit *bits, u_int64_t K, Bhattacharyya *b);

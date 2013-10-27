@@ -17,6 +17,15 @@ void random_bits(Bit *bits, u_int64_t N) {
     }
 }
 
+void random_bits_f(Bit *bits, Bit *A, u_int64_t N) {
+    u_int64_t i;
+    for(i=0; i<N; i++){
+        if(A[i] == 0)
+            bits[i] = 0;
+        else
+            bits[i] = rand() & 1;        
+    }
+}
 
 void print_bits(Bit *bits, u_int64_t N) {
     

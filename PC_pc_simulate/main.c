@@ -11,7 +11,12 @@
 #include <string.h>
 #include <inttypes.h>
 #include <sys/time.h>
+#include "../PolarCodes/polar_codes.h"
 #include "../PolarCodes/bhattacharyya_files.h"
+#include "../PolarCodes/pc_encode.h"
+#include "../PolarCodes/pc_decode.h"
+#include "../PolarCodes/channels.h"
+#include "../PolarCodes/error_rate.h"
 
 
 #define DEFAULT_max_n_samples (1<<30)
@@ -68,29 +73,51 @@ int main(int argc, const char * argv[])
     Bhattacharyya b;
     get_bhattacharyya(&b, dir, n, &channel);
     
+    
     Bit *A = malloc(sizeof(Bit)*N);
     get_frozen_bits(A, K, &b);
     
-    
-    
-    
-    rnd = randi([0,1],Rows,N);
-    u=zeros(Rows,N);
-    u(:,A==1)=rnd(:,A==1);
-    
-    x = pc_encode_c(u);
-    y = apply_channel(x,ch_type,ch_par);
-    u_ = pc_decode_c( y, ch_type, ch_par, A);
-    
-    errors=sum(u~=u_,2);
-    total=sum(A==1);
-    ber = errors./total;
-    
-    sum_ber(n,p) = sum_ber(n,p) + sum(ber);
-    sum_ber2(n,p) = sum_ber2(n,p) + sum(ber.^2);
-    num_ber(n,p) = num_ber(n,p) + Rows;
+    Bit *u = malloc(sizeof(Bit)*N);
+    Bit *x = malloc(sizeof(Bit)*N);
 
+
+    ErrorRate error_rate;
+    get_or_create_error_rate(&error_rate, dir, n, &channel, K);
     
+    while (1) {
+        
+        u_int64_t i;
+        for(i=0; i < n_samples; i++){
+            
+            random_bits_f(u, A, N);
+            pc_encode(x, u, n);
+            apply_channel(x, x, &channel, n);
+            pc_decode(x, x, &channel, A, n);
+            
+            u_int64_t bit_errors = 0;
+            u_int64_t j;
+            for(j=0; j < N; j++){
+                if(u[j] != x[j])
+                    bit_errors++;
+            }
+            
+            double ber = (double)bit_errors / (double)N;
+            
+            error_rate.total_samples++;
+            error_rate.BER += ber;
+            error_rate.BER_2 += ber*ber;
+            if(bit_errors > 0)
+                error_rate.frame_errors++;
+            
+        }
+        
+        
+        save_error_rate(&error_rate, dir);
+        printf("total_samples = %lld\n", error_rate.total_samples);
+        
+        if(error_rate.total_samples > max_n_samples)
+            break;
+    }
     
     return 0;
 }

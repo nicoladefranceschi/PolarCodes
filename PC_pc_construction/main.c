@@ -60,7 +60,7 @@ int main(int argc, const char * argv[])
     dir = argv[6];
     
     Bhattacharyya b;
-    get_bhattacharyya(&b, dir, n, &channel);
+    get_or_create_bhattacharyya(&b, dir, n, &channel);
     
     while (1) {
         
