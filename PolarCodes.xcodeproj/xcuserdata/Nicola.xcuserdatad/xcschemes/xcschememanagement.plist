@@ -19,9 +19,19 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>pc_simulate.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>B31E0A2A181CBCF100E941E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B3B7193B181B092300055AD4</key>
 		<dict>
 			<key>primary</key>

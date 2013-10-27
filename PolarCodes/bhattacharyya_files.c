@@ -104,3 +104,37 @@ void save_bhattacharyya(Bhattacharyya *b, const char *dir) {
     rename(old, new);
 
 }
+
+struct frozen_bits_index_struct {
+    u_int64_t index;
+    Bhattacharyya *b;
+};
+
+int frozen_bits_sort_cmp(const void *x, const void *y)
+{
+    struct frozen_bits_index_struct *xx = (struct frozen_bits_index_struct*)x;
+    struct frozen_bits_index_struct *yy = (struct frozen_bits_index_struct*)y;
+    Bhattacharyya *b = xx->b;
+    if (b->Z[xx->index] < b->Z[yy->index]) return -1;
+    if (b->Z[xx->index] > b->Z[yy->index]) return 1;
+    return 0;
+}
+
+void get_frozen_bits(Bit *bits, u_int64_t K, Bhattacharyya *b) {
+    u_int64_t N = 1 << b->n;
+    struct frozen_bits_index_struct *indexes = (struct frozen_bits_index_struct*)malloc(sizeof(struct frozen_bits_index_struct)*N);
+    u_int64_t i;
+    for(i=0;i<N;i++){
+        indexes[i].index = i;
+        indexes[i].b = b;
+    }
+    
+    qsort(indexes, N, sizeof(struct frozen_bits_index_struct), &frozen_bits_sort_cmp);
+        
+    memset(bits, 0, N);
+    for(i=0;i<K;i++){
+        bits[i] = 1;
+    }
+    
+}
+

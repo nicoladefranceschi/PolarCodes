@@ -1,3 +1,4 @@
+
 HEADERS = PolarCodes/bhattacharyya_files.h \
 		PolarCodes/channels.h \
 		PolarCodes/double_ei.h \
@@ -14,13 +15,18 @@ OBJECTS = PolarCodes/bhattacharyya_files.o \
  	PolarCodes/pc_decode_internal.o \
  	PolarCodes/pc_decode.o \
  	PolarCodes/pc_encode.o \
- 	PolarCodes/polar_codes.o \
- 	PC_pc_construction/main.o
+ 	PolarCodes/polar_codes.o
 
-EXECUTABLE = pc_construction
+MAIN_FILES = PC_pc_construction/main.o PC_pc_simulate/main.o
 
-pc_construction: $(OBJECTS)
-	gcc $(OBJECTS) -lm -o $@
+EXECUTABLE = pc_construction pc_simulate
+
+
+pc_construction: $(OBJECTS) PC_pc_construction/main.o
+	gcc $(OBJECTS) PC_pc_construction/main.o -lm -o $@
+
+pc_simulate: $(OBJECTS) PC_pc_simulate/main.o
+	gcc $(OBJECTS) PC_pc_simulate/main.o -lm -o $@
 
 
 
@@ -31,5 +37,6 @@ default: $(EXECUTABLE)
 	gcc -c $< -o $@
 
 clean:
-	-rm -f $(OBJECTS)
+	-rm -f $(OBJECTS) $(MAIN_FILES)
 	-rm -f $(EXECUTABLE)
+
