@@ -159,7 +159,8 @@ void get_frozen_bits(Bit *bits, u_int64_t K, Bhattacharyya *b) {
         
     memset(bits, 0, N);
     for(i=0;i<K;i++){
-        bits[i] = 1;
+        u_int64_t index = indexes[i].index;
+        bits[index] = 1;
     }
     
 }
