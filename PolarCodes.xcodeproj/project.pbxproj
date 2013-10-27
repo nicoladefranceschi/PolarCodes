@@ -47,6 +47,11 @@
 
 /* Begin PBXFileReference section */
 		B31E0A21181CBADA00E941E5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B31E0A22181CBB5900E941E5 /* batch_pc_construction.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = batch_pc_construction.sh; sourceTree = "<group>"; };
+		B31E0A23181CBB5900E941E5 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		B31E0A24181CBB5900E941E5 /* pc_construction_launcher.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pc_construction_launcher.sh; sourceTree = "<group>"; };
+		B31E0A25181CBB5900E941E5 /* qbatch_pc_construction.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = qbatch_pc_construction.sh; sourceTree = "<group>"; };
+		B31E0A26181CBB5900E941E5 /* test.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test.sh; sourceTree = "<group>"; };
 		B3B7195D181B0AD900055AD4 /* channels.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = channels.c; sourceTree = "<group>"; };
 		B3B7195E181B0AD900055AD4 /* channels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = channels.h; sourceTree = "<group>"; };
 		B3B7195F181B0AD900055AD4 /* double_ei.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = double_ei.c; sourceTree = "<group>"; };
@@ -92,6 +97,11 @@
 		B3B71933181B092300055AD4 = {
 			isa = PBXGroup;
 			children = (
+				B31E0A22181CBB5900E941E5 /* batch_pc_construction.sh */,
+				B31E0A23181CBB5900E941E5 /* Makefile */,
+				B31E0A24181CBB5900E941E5 /* pc_construction_launcher.sh */,
+				B31E0A25181CBB5900E941E5 /* qbatch_pc_construction.sh */,
+				B31E0A26181CBB5900E941E5 /* test.sh */,
 				B31E0A21181CBADA00E941E5 /* .gitignore */,
 				B3B7193E181B092300055AD4 /* PolarCodes */,
 				B3B71977181B0C5500055AD4 /* PCTest_double_ei */,
