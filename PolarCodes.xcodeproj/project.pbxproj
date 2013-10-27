@@ -8,37 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		B3B7197B181B0C5500055AD4 /* Test_double_ei.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3B7197A181B0C5500055AD4 /* Test_double_ei.1 */; };
-		B3B7197F181B0CA500055AD4 /* channels.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7195D181B0AD900055AD4 /* channels.c */; };
-		B3B71980181B0CAB00055AD4 /* channels.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B7195E181B0AD900055AD4 /* channels.h */; };
 		B3B71981181B0CAB00055AD4 /* double_ei.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7195F181B0AD900055AD4 /* double_ei.c */; };
-		B3B71982181B0CAB00055AD4 /* double_ei.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71960181B0AD900055AD4 /* double_ei.h */; };
-		B3B71983181B0CAB00055AD4 /* pc_construction.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71961181B0AD900055AD4 /* pc_construction.c */; };
-		B3B71984181B0CAB00055AD4 /* pc_construction.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71962181B0AD900055AD4 /* pc_construction.h */; };
-		B3B71985181B0CAB00055AD4 /* pc_decode_internal.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71963181B0AD900055AD4 /* pc_decode_internal.c */; };
-		B3B71986181B0CAB00055AD4 /* pc_decode_internal.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71964181B0AD900055AD4 /* pc_decode_internal.h */; };
-		B3B71987181B0CAB00055AD4 /* pc_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71965181B0AD900055AD4 /* pc_decode.c */; };
-		B3B71988181B0CAB00055AD4 /* pc_decode.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71966181B0AD900055AD4 /* pc_decode.h */; };
-		B3B71989181B0CAB00055AD4 /* pc_encode.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71967181B0AD900055AD4 /* pc_encode.c */; };
-		B3B7198A181B0CAB00055AD4 /* pc_encode.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71968181B0AD900055AD4 /* pc_encode.h */; };
-		B3B7198B181B0CAB00055AD4 /* polar_codes.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71969181B0AD900055AD4 /* polar_codes.c */; };
-		B3B7198C181B0CAB00055AD4 /* polar_codes.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B7196A181B0AD900055AD4 /* polar_codes.h */; };
 		B3B71995181B0CFC00055AD4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71994181B0CFC00055AD4 /* main.c */; };
 		B3B71997181B0CFC00055AD4 /* pc_construction.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3B71996181B0CFC00055AD4 /* pc_construction.1 */; };
 		B3B7199C181B0D3100055AD4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7199B181B0D3100055AD4 /* main.c */; };
 		B3B7199D181B127A00055AD4 /* channels.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7195D181B0AD900055AD4 /* channels.c */; };
-		B3B7199E181B127A00055AD4 /* channels.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B7195E181B0AD900055AD4 /* channels.h */; };
 		B3B7199F181B127A00055AD4 /* double_ei.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B7195F181B0AD900055AD4 /* double_ei.c */; };
-		B3B719A0181B127A00055AD4 /* double_ei.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71960181B0AD900055AD4 /* double_ei.h */; };
 		B3B719A1181B127A00055AD4 /* pc_construction.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71961181B0AD900055AD4 /* pc_construction.c */; };
-		B3B719A2181B127A00055AD4 /* pc_construction.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71962181B0AD900055AD4 /* pc_construction.h */; };
 		B3B719A3181B127A00055AD4 /* pc_decode_internal.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71963181B0AD900055AD4 /* pc_decode_internal.c */; };
-		B3B719A4181B127A00055AD4 /* pc_decode_internal.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71964181B0AD900055AD4 /* pc_decode_internal.h */; };
 		B3B719A5181B127A00055AD4 /* pc_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71965181B0AD900055AD4 /* pc_decode.c */; };
-		B3B719A6181B127A00055AD4 /* pc_decode.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71966181B0AD900055AD4 /* pc_decode.h */; };
 		B3B719A7181B127A00055AD4 /* pc_encode.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71967181B0AD900055AD4 /* pc_encode.c */; };
-		B3B719A8181B127A00055AD4 /* pc_encode.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B71968181B0AD900055AD4 /* pc_encode.h */; };
 		B3B719A9181B127A00055AD4 /* polar_codes.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B71969181B0AD900055AD4 /* polar_codes.c */; };
-		B3B719AA181B127A00055AD4 /* polar_codes.h in Sources */ = {isa = PBXBuildFile; fileRef = B3B7196A181B0AD900055AD4 /* polar_codes.h */; };
 		B3B719AD181B15AE00055AD4 /* bhattacharyya_files.c in Sources */ = {isa = PBXBuildFile; fileRef = B3B719AC181B15AE00055AD4 /* bhattacharyya_files.c */; };
 /* End PBXBuildFile section */
 
@@ -237,21 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3B71980181B0CAB00055AD4 /* channels.h in Sources */,
 				B3B71981181B0CAB00055AD4 /* double_ei.c in Sources */,
-				B3B71982181B0CAB00055AD4 /* double_ei.h in Sources */,
-				B3B71983181B0CAB00055AD4 /* pc_construction.c in Sources */,
-				B3B71984181B0CAB00055AD4 /* pc_construction.h in Sources */,
-				B3B71985181B0CAB00055AD4 /* pc_decode_internal.c in Sources */,
-				B3B71986181B0CAB00055AD4 /* pc_decode_internal.h in Sources */,
-				B3B71987181B0CAB00055AD4 /* pc_decode.c in Sources */,
 				B3B7199C181B0D3100055AD4 /* main.c in Sources */,
-				B3B71988181B0CAB00055AD4 /* pc_decode.h in Sources */,
-				B3B71989181B0CAB00055AD4 /* pc_encode.c in Sources */,
-				B3B7198A181B0CAB00055AD4 /* pc_encode.h in Sources */,
-				B3B7198B181B0CAB00055AD4 /* polar_codes.c in Sources */,
-				B3B7198C181B0CAB00055AD4 /* polar_codes.h in Sources */,
-				B3B7197F181B0CA500055AD4 /* channels.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,20 +227,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3B7199D181B127A00055AD4 /* channels.c in Sources */,
-				B3B7199E181B127A00055AD4 /* channels.h in Sources */,
 				B3B7199F181B127A00055AD4 /* double_ei.c in Sources */,
-				B3B719A0181B127A00055AD4 /* double_ei.h in Sources */,
 				B3B719A1181B127A00055AD4 /* pc_construction.c in Sources */,
-				B3B719A2181B127A00055AD4 /* pc_construction.h in Sources */,
 				B3B719A3181B127A00055AD4 /* pc_decode_internal.c in Sources */,
-				B3B719A4181B127A00055AD4 /* pc_decode_internal.h in Sources */,
 				B3B719A5181B127A00055AD4 /* pc_decode.c in Sources */,
-				B3B719A6181B127A00055AD4 /* pc_decode.h in Sources */,
 				B3B719A7181B127A00055AD4 /* pc_encode.c in Sources */,
-				B3B719A8181B127A00055AD4 /* pc_encode.h in Sources */,
 				B3B719A9181B127A00055AD4 /* polar_codes.c in Sources */,
 				B3B719AD181B15AE00055AD4 /* bhattacharyya_files.c in Sources */,
-				B3B719AA181B127A00055AD4 /* polar_codes.h in Sources */,
 				B3B71995181B0CFC00055AD4 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +316,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -363,6 +324,7 @@
 		B3B7197E181B0C5500055AD4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -404,6 +366,7 @@
 				B3B7197E181B0C5500055AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3B71998181B0CFC00055AD4 /* Build configuration list for PBXNativeTarget "pc_construction" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +375,7 @@
 				B3B7199A181B0CFC00055AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
