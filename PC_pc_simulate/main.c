@@ -22,8 +22,9 @@
 #define DEFAULT_max_n_samples (1<<30)
 
 
-// call with arguments: n ch_type ch_par K n_samples max_n_samples dir
+// call with arguments: n ch_type ch_par Kmin Kdelta Kmax n_samples max_n_samples dir
 // max_n_samples==-1 for default
+// Kmin Kdelta Kmax are actually Kmin/N Kdelta/N Kmax/N
 int main(int argc, const char * argv[])
 {
     
@@ -35,12 +36,12 @@ int main(int argc, const char * argv[])
     
     Channel channel;
     u_int64_t n;
-    u_int64_t K;
+    double Kmin, Kdelta, Kmax;
     u_int64_t n_samples;
     int64_t max_n_samples;
     const char *dir;
     
-    if(argc != 8)
+    if(argc != 10)
         exit(2);
     
     
@@ -53,19 +54,21 @@ int main(int argc, const char * argv[])
     //ch_par
     sscanf(argv[3], "%lf", &(channel.par));
     
-    //K
-    sscanf(argv[4], "%" PRIu64, &K);
+    //Kmin Kdelta Kmax
+    sscanf(argv[4], "%lf", &Kmin);
+    sscanf(argv[5], "%lf", &Kdelta);
+    sscanf(argv[6], "%lf", &Kmax);
     
     //n_samples
-    sscanf(argv[5], "%" PRIu64, &n_samples);
+    sscanf(argv[7], "%" PRIu64, &n_samples);
     
     //max_n_samples
-    sscanf(argv[6], "%" PRId64, &max_n_samples);
+    sscanf(argv[8], "%" PRId64, &max_n_samples);
     if(max_n_samples == -1)
         max_n_samples=DEFAULT_max_n_samples;
     
     //dir
-    dir = argv[7];
+    dir = argv[9];
     
     
     u_int64_t N = 1 << n;
@@ -74,49 +77,80 @@ int main(int argc, const char * argv[])
     get_bhattacharyya(&b, dir, n, &channel);
     
     
-    Bit *A = malloc(sizeof(Bit)*N);
-    get_frozen_bits(A, K, &b);
+    u_int64_t lastK=0;
+    u_int64_t numK = (u_int64_t)((Kmax-Kmin)/Kdelta)+1;
+    u_int64_t realNumK=0;
+    Bit **As = malloc(sizeof(Bit*)*numK);
+    ErrorRate *ers = malloc(sizeof(ErrorRate)*numK);
+    
+    u_int64_t i;
+    for(i=0;i<numK;i++){
+        u_int64_t K = (u_int64_t)((Kmin+Kdelta*i) * N);
+        if(K == lastK)
+            continue;
+        if(K > N)
+            break;
+        
+        lastK = K;
+        Bit *A = malloc(sizeof(Bit)*N);
+        get_frozen_bits(A, K, &b);
+        As[realNumK]=A;
+        
+        get_or_create_error_rate(&ers[realNumK], dir, n, &channel, K);
+
+        realNumK++;
+    }
+    
+    numK=realNumK;
     
     Bit *u = malloc(sizeof(Bit)*N);
     Bit *x = malloc(sizeof(Bit)*N);
-
-
-    ErrorRate error_rate;
-    get_or_create_error_rate(&error_rate, dir, n, &channel, K);
     
     while (1) {
         
-        u_int64_t i;
-        for(i=0; i < n_samples; i++){
+        u_int64_t num_done = 0;
+        
+        u_int64_t k;
+        for(k=0; k<numK; k++){
             
-            random_bits_f(u, A, N);
-            pc_encode(x, u, n);
-            apply_channel(x, x, &channel, n);
-            pc_decode(x, x, &channel, A, n);
-            
-            u_int64_t bit_errors = 0;
-            u_int64_t j;
-            for(j=0; j < N; j++){
-                if(u[j] != x[j])
-                    bit_errors++;
+            if(ers[k].total_samples > max_n_samples){
+                num_done++;
+                continue;
             }
             
-            double ber = (double)bit_errors / (double)N;
+            Bit *A = As[k];
+            for(i=0; i < n_samples; i++){
+                
+                random_bits_f(u, A, N);
+                pc_encode(x, u, n);
+                apply_channel(x, x, &channel, n);
+                pc_decode(x, x, &channel, A, n);
+                
+                u_int64_t bit_errors = 0;
+                u_int64_t j;
+                for(j=0; j < N; j++){
+                    if(u[j] != x[j])
+                        bit_errors++;
+                }
+                
+                double ber = (double)bit_errors / (double)N;
+                
+                ers[k].total_samples++;
+                ers[k].BER += ber;
+                ers[k].BER_2 += ber*ber;
+                if(bit_errors > 0)
+                    ers[k].frame_errors++;
+                
+            }
             
-            error_rate.total_samples++;
-            error_rate.BER += ber;
-            error_rate.BER_2 += ber*ber;
-            if(bit_errors > 0)
-                error_rate.frame_errors++;
+            save_error_rate(&ers[k], dir);
+            printf("K = %lld, total_samples = %lld\n", ers[k].K, ers[k].total_samples);
             
         }
         
-        
-        save_error_rate(&error_rate, dir);
-        printf("total_samples = %lld\n", error_rate.total_samples);
-        
-        if(error_rate.total_samples > max_n_samples)
+        if(num_done == numK)
             break;
+        
     }
     
     return 0;
