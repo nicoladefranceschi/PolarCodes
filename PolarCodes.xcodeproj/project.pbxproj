@@ -136,6 +136,13 @@
 		B3E4D4301843CE3700EAA309 /* Test_bec */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test_bec; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E4D4321843CE3700EAA309 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		B3E4D4341843CE3700EAA309 /* Test_bec.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Test_bec.1; sourceTree = "<group>"; };
+		B3E4D51D18500DAA00EAA309 /* get_bhattacharyya.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = get_bhattacharyya.m; sourceTree = "<group>"; };
+		B3E4D51E18500DAA00EAA309 /* get_error_rate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = get_error_rate.m; sourceTree = "<group>"; };
+		B3E4D51F18500DAA00EAA309 /* mex_pc_decode.mexmaci64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; path = mex_pc_decode.mexmaci64; sourceTree = "<group>"; };
+		B3E4D52018500DAA00EAA309 /* mex_pc_encode.mexmaci64 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; path = mex_pc_encode.mexmaci64; sourceTree = "<group>"; };
+		B3E4D52118500DAA00EAA309 /* pc_compile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pc_compile.m; sourceTree = "<group>"; };
+		B3E4D52218500DAA00EAA309 /* pc_decode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pc_decode.m; sourceTree = "<group>"; };
+		B3E4D52318500DAA00EAA309 /* pc_encode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pc_encode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +197,7 @@
 				B31E0A26181CBB5900E941E5 /* test.sh */,
 				B31E0A23181CBB5900E941E5 /* Makefile */,
 				B31E0A21181CBADA00E941E5 /* .gitignore */,
+				B3E4D51C18500DAA00EAA309 /* MATLAB */,
 				B3B7193E181B092300055AD4 /* PolarCodes */,
 				B3B71977181B0C5500055AD4 /* PCTest_double_ei */,
 				B3B71993181B0CFC00055AD4 /* PC_pc_construction */,
@@ -260,6 +268,20 @@
 				B3E4D4341843CE3700EAA309 /* Test_bec.1 */,
 			);
 			path = PCTest_bec;
+			sourceTree = "<group>";
+		};
+		B3E4D51C18500DAA00EAA309 /* MATLAB */ = {
+			isa = PBXGroup;
+			children = (
+				B3E4D51D18500DAA00EAA309 /* get_bhattacharyya.m */,
+				B3E4D51E18500DAA00EAA309 /* get_error_rate.m */,
+				B3E4D51F18500DAA00EAA309 /* mex_pc_decode.mexmaci64 */,
+				B3E4D52018500DAA00EAA309 /* mex_pc_encode.mexmaci64 */,
+				B3E4D52118500DAA00EAA309 /* pc_compile.m */,
+				B3E4D52218500DAA00EAA309 /* pc_decode.m */,
+				B3E4D52318500DAA00EAA309 /* pc_encode.m */,
+			);
+			path = MATLAB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,6 +649,7 @@
 				B3E4D4371843CE3700EAA309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
