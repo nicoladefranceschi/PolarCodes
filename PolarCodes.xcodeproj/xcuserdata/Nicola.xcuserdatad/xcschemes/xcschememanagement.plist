@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Test_bec.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Test_double_ei.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>B3B71991181B0CFC00055AD4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B3E4D42F1843CE3700EAA309</key>
 		<dict>
 			<key>primary</key>
 			<true/>
