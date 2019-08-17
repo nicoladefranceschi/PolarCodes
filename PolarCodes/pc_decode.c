@@ -22,6 +22,12 @@ void pc_decode(Bit *u_, Bit *y, const Channel *channel, Bit *A, u_int64_t n) {
     u_int64_t uindex = 0;
     
     double *delta = malloc(N*sizeof(double));
+    if(!delta)
+    {
+        perror("malloc");
+        exit(EXIT_FAILURE);
+    }
+    
     u_int64_t i;
     for(i = 0; i < N; i++){
         
@@ -52,7 +58,7 @@ void pc_decode(Bit *u_, Bit *y, const Channel *channel, Bit *A, u_int64_t n) {
     
 }
 
-void pc_decode_update_u_(Bit *u_, Bit *A, double v, u_int64_t *uindex){
+static void pc_decode_update_u_(Bit *u_, Bit *A, double v, u_int64_t *uindex){
     
     if(A[*uindex] == 0){
         u_[*uindex] = 0;
@@ -65,7 +71,7 @@ void pc_decode_update_u_(Bit *u_, Bit *A, double v, u_int64_t *uindex){
     (*uindex)++;
 }
 
-void pc_decode_step(Bit *u_, Bit *A, u_int64_t n, u_int64_t step, double *val, u_int64_t *uindex){
+static void pc_decode_step(Bit *u_, Bit *A, u_int64_t n, u_int64_t step, double *val, u_int64_t *uindex){
     
     u_int64_t D = 1 << (n-step);
     double *new_val = malloc(sizeof(double)*D);
